@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Himadrish Bhowmik – Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 24px;
+        }
+
+        .resume {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            width: 860px;
+            min-height: 1100px;
+            background: #fff;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        /* ── LEFT SIDEBAR ── */
+        .sidebar {
+            background: #1a5f5f;
+            color: #fff;
+            padding: 36px 24px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .photo-wrap {
+            display: flex;
+            justify-content: center;
+        }
+
+        .photo-wrap img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .photo-placeholder {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: 4px solid rgba(255, 255, 255, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            font-size: 12.5px;
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        .contact-list li .icon {
+            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+            margin-top: 1px;
+            opacity: 0.85;
+        }
+
+        .sidebar-section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-section-title svg {
+            flex-shrink: 0;
+        }
+
+        .sidebar-divider {
+            border: none;
+            border-top: 1.5px solid rgba(255, 255, 255, 0.25);
+            margin-bottom: 10px;
+        }
+
+        .summary-text {
+            font-size: 12.5px;
+            line-height: 1.65;
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+        .skills-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .skills-list li {
+            font-size: 12.5px;
+            color: rgba(255, 255, 255, 0.88);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .skills-list li::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.55);
+            flex-shrink: 0;
+        }
+
+        .links-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .links-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.88);
+            line-height: 1.45;
+            word-break: break-all;
+        }
+
+        .links-list li svg {
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* ── RIGHT MAIN ── */
+        .main {
+            padding: 36px 36px 40px 36px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .name-block h1 {
+            font-size: 38px;
+            font-weight: 800;
+            color: #1a5f5f;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: #1a5f5f;
+            margin-bottom: 6px;
+        }
+
+        .section-title svg {
+            flex-shrink: 0;
+        }
+
+        .section-rule {
+            border: none;
+            border-top: 1.5px solid #1a5f5f;
+            margin-bottom: 14px;
+        }
+
+        .edu-date {
+            font-size: 12.5px;
+            color: #555;
+            margin-bottom: 3px;
+        }
+
+        .edu-degree {
+            font-size: 14px;
+            font-weight: 700;
+            color: #222;
+            display: inline;
+        }
+
+        .edu-field {
+            font-size: 14px;
+            font-weight: 400;
+            color: #222;
+        }
+
+        .edu-uni {
+            font-size: 13px;
+            color: #444;
+            margin: 3px 0 8px;
+        }
+
+        .edu-bullets {
+            list-style: disc;
+            padding-left: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .edu-bullets li {
+            font-size: 12.5px;
+            color: #444;
+        }
+
+        .cert-text {
+            font-size: 13px;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .project-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            border-bottom: 1px dashed #d0d0d0;
+            padding-bottom: 14px;
+        }
+
+        .project-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .project-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #1a5f5f;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        .project-content {
+            flex: 1;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-bottom: 5px;
+        }
+
+        .project-name {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .project-tech {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .project-bullets {
+            list-style: disc;
+            padding-left: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .project-bullets li {
+            font-size: 12.5px;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+                padding: 0;
+            }
+
+            .resume {
+                box-shadow: none;
+                width: 100%;
+            }
+        }
+
+        a:link {
+            color: rgb(36, 234, 174);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: rgb(19, 143, 156);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume">
+
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="photo-wrap">
+                <img src="image.png" alt="my photo">
+            </div>
+
+            <ul class="contact-list">
+                <li>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    Agartala, India 799002
+                </li>
+                <li>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z" />
+                    </svg>
+                    +91 93621 20559
+                </li>
+                <li>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    himadrish07@gmail.com
+                </li>
+            </ul>
+
+            <div>
+                <div class="sidebar-section-title">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                    Summary
+                </div>
+                <hr class="sidebar-divider" />
+                <p class="summary-text">B.Tech Computer Science student at Medhavi Skills University with expertise in
+                    systems programming, web technologies, and database management. Proficient in C, C++, Java,
+                    HTML/CSS, JavaScript, MySQL, and MongoDB. Aiming for a full stack developer position to leverage
+                    technical skills in creating scalable software solutions.</p>
+            </div>
+
+            <div>
+                <div class="sidebar-section-title">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6" />
+                        <polyline points="8 6 2 12 8 18" />
+                    </svg>
+                    Skills
+                </div>
+                <hr class="sidebar-divider" />
+                <ul class="skills-list">
+                    <li>Java</li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>REST APIs</li>
+                    <li>MySQL</li>
+                    <li>MongoDB</li>
+                    <li>C</li>
+                    <li>C++</li>
+                    <li>Git</li>
+                    <li>GitHub</li>
+                    <li>VS Code</li>
+                    <li>Team collaboration</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="sidebar-section-title">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                    </svg>
+                    Links
+                </div>
+                <hr class="sidebar-divider" />
+                <ul class="links-list">
+                    <li>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect x="2" y="9" width="4" height="12" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
+                        <a href="https://www.linkedin.com/in/himadrish-bhowmik-521067381/">
+                            linkedin.com/in/himadrish-bhowmik-521067381/</a>
+                    </li>
+                    <li>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                        </svg>
+                        <a href="https://github.com/himadrish07-ui">github.com/himadrish07-ui</a>
+                    </li>
+                </ul>
+            </div>
+
+        </aside>
+
+        <!-- RIGHT MAIN -->
+        <main class="main">
+
+            <div class="name-block">
+                <h1>HIMADRISH<br />BHOWMIK</h1>
+            </div>
+
+            <!-- Education -->
+            <section>
+                <div class="section-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                    </svg>
+                    Education
+                </div>
+                <hr class="section-rule" />
+                <p class="edu-date">June 2026</p>
+                <p>
+                    <span class="edu-degree">Bachelor of Technology</span>
+                    &nbsp;<span style="color:#888;font-size:13px;">|</span>&nbsp;
+                    <span class="edu-field">Computer Science</span>
+                </p>
+                <p class="edu-uni">Medhavi Skills University, Sikkim</p>
+                <ul class="edu-bullets">
+                    <li>Currently Pursuing</li>
+                    <li>Industry Partner: PwI0I</li>
+                </ul>
+            </section>
+
+            <!-- Certifications -->
+            <section>
+                <div class="section-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="8" r="6" />
+                        <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
+                    </svg>
+                    Certifications
+                </div>
+                <hr class="section-rule" />
+                <p class="cert-text">Certifications are listed on my LinkedIn profile –
+                    linkedin.com/in/himadrish-bhowmik-521067381</p>
+            </section>
+
+            <!-- Projects -->
+            <section>
+                <div class="section-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                    </svg>
+                    Projects
+                </div>
+                <hr class="section-rule" />
+
+                <div class="projects-list">
+
+                    <div class="project-row">
+                        <div class="project-dot"></div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <span class="project-name">Interactive Quiz App</span>
+                                <span class="project-tech">- GitHub, HTML, CSS, JavaScript</span>
+                            </div>
+                            <ul class="project-bullets">
+                                <li>Dynamic quiz that generates topic-specific questions based on user selection using
+                                    AI-powered content fetching.</li>
+                                <li>Fetches and displays detailed answer explanations to reinforce learning after each
+                                    question.</li>
+                                <li>Integrates with the Dev-Agency dashboard as an extended module, demonstrating
+                                    component-based architecture.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project-row">
+                        <div class="project-dot"></div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <span class="project-name">Dev Agency</span>
+                                <span class="project-tech">- Web Dashboard, GitHub, HTML, CSS, JavaScript</span>
+                            </div>
+                            <ul class="project-bullets">
+                                <li>Designed and built a responsive multi-page agency website showcasing services,
+                                    portfolio, and contact sections.</li>
+                                <li>Implemented clean UI with semantic HTML5 and modern CSS3 layouts.</li>
+                                <li>Acts as the parent dashboard platform for the Interactive Quiz module integration.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project-row">
+                        <div class="project-dot"></div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <span class="project-name">Guessor App</span>
+                                <span class="project-tech">- Multiplayer Number Game, GitHub, JavaScript, HTML,
+                                    CSS</span>
+                            </div>
+                            <ul class="project-bullets">
+                                <li>Built a 4-player interactive game where players guess a randomly generated number to
+                                    win.</li>
+                                <li>Implemented real-time win detection logic and score tracking with JavaScript event
+                                    handling.</li>
+                                <li>Designed a clean, responsive game UI for an engaging user experience.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project-row">
+                        <div class="project-dot"></div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <span class="project-name">C Programming Repository</span>
+                                <span class="project-tech">- GitHub, C Language</span>
+                            </div>
+                            <ul class="project-bullets">
+                                <li>Curated collection of C programs covering data structures, algorithms, and
+                                    problem-solving exercises.</li>
+                                <li>Demonstrates understanding of memory management, pointers, and low-level programming
+                                    concepts.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</body>
+
+</html>
